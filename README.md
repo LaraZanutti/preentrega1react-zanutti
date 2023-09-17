@@ -32,11 +32,12 @@ En resumen, esta aplicación permite a los usuarios explorar productos, agregarl
     -React-spinners by David Hu
     -Font Awesome
     -Firebase
-    -Daisiuy
+    -Daisyui
     -Tailwind CSS
     -Sweet Alert
 
 
-[link](netlify)
+[Netflify](https://proyectofinalreactzanutti.netlify.app)
+[Video](https://drive.google.com/file/d/10qgd27OZIPid4aToEp8-xD5VlWky4Y_C/view)
 
     • CoderHouse •
