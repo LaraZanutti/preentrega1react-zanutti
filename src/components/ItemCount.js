@@ -1,12 +1,9 @@
 import { useState } from "react"
 
-function ItemCount({ stock, initial }) {
+function ItemCount({ stock = 5, initial = 1, onAdd, qtyColor, btnMargin }) {
 
     const [contador, setContador] = useState(initial)
 
-    const onAdd = () => {
-        console.log(contador)
-    }
 
     const sumar = () => {
         if (contador < stock) {
@@ -18,17 +15,23 @@ function ItemCount({ stock, initial }) {
         if (contador > 0) setContador(contador - 1)
     }
 
+    const handleClick = () => {
+        onAdd(contador)
+    }
+
     return (
         <>
-            <div className="flex justify-center gap-4">
+            <div className="flex justify-center gap-4 mb-2">
                 <button className="btn btn-outline btn-error" onClick={restar}>-</button>
                 <div className="flex items-center justify-center">
-                    <p className="text-white text-center text-2xl align-middle">{contador}</p>
+                    <p className={`${qtyColor} text-center text-2xl align-middle`}>{contador}</p>
                 </div>
                 <button className="btn btn-outline btn-success" onClick={sumar}>+</button>
 
             </div>
-            <button className="btn btn-success" onClick={() => onAdd()}>Agregar al carrito</button>
+            <div className={`${btnMargin} flex justify-center`}>
+                <button className="btn btn-success" onClick={handleClick}>Add to cart</button>
+            </div>
         </>
     )
 }

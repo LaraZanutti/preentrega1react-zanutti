@@ -1,11 +1,15 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
+import { useNavigate } from "react-router-dom";
 import ItemDetail from './ItemDetail'
+import { db } from "../db/firebase"
+import { collection, getDoc, doc } from "firebase/firestore"
 
 function ItemDetailContainer() {
     const [producto, setProducto] = useState({})
     const [isLoading, setIsLoading] = useState(false)
     const params = useParams()
+    const navigate = useNavigate();
 
     useEffect(() => {
         setIsLoading(true)
@@ -14,16 +18,24 @@ function ItemDetailContainer() {
 
     const getProducto = async () => {
         try {
-            const response = await fetch(`https://fakestoreapi.com/products/${params.id}`)
-            const json = await response.json()
-            setProducto(json)
-        } catch (e) {
-            console.log(e)
+            const productosCollection = collection(db, "productos")
+            const productoPorId = doc(productosCollection, params.id)
+            const consulta = await getDoc(productoPorId)
+            if (!consulta.data()) {
+                navigate("*")
+            }
+            setProducto(
+                {
+                    ...consulta.data(),
+                    id: params.id
+                }
+            )
+        } catch (error) {
+            console.log(error)
         } finally {
             setIsLoading(false)
         }
     }
-
 
     return (
         <div className='justify-center flex items-center h-full mt-8'>
