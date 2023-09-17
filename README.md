@@ -37,7 +37,10 @@ En resumen, esta aplicación permite a los usuarios explorar productos, agregarl
     -Sweet Alert
 
 
-[Netflify](https://proyectofinalreactzanutti.netlify.app)
-[Video](https://drive.google.com/file/d/10qgd27OZIPid4aToEp8-xD5VlWky4Y_C/view)
+[Netlify página deployada en vivo](https://proyectofinalreactzanutti.netlify.app)
+
+# 
+
+[Video recorrido](https://drive.google.com/file/d/10qgd27OZIPid4aToEp8-xD5VlWky4Y_C/view)
 
     • CoderHouse •
